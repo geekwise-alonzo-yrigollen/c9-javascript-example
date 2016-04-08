@@ -18,7 +18,7 @@ var add_images = function(number_of_images){
         
          image.addEventListener('mouseover', function(event){
              
-             this.style.transform = "rotateY(360deg)";
+             this.style.transform = "rotateY(180deg)";
              
              this.style.flip = "rotateY(360deg)";
              
@@ -29,27 +29,20 @@ var add_images = function(number_of_images){
          image.addEventListener('click', function(event){
              
              
-              this.style.transform = "rotateZ(180deg)";
+              this.style.transform = "rotateX(180deg)";
               this.style.transition = '1.1s';
               
-             
-            
          }); 
         
     }
 };
 
 
-
-
-
 document.addEventListener('DOMContentLoaded', function(event){
     
     add_images(68,'5%');
     
-    
-   
-    
+
 });
 
 
