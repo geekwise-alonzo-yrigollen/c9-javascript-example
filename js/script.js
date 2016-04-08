@@ -29,8 +29,8 @@ var add_images = function(number_of_images){
          image.addEventListener('click', function(event){
              
              
-              this.style.transform = "rotateX(180deg)";
-              this.style.transition = '1.1s';
+              this.style.transform = "rotateZ(360deg)";
+              this.style.transition = '2.1s';
               
          }); 
         
