@@ -1,51 +1,21 @@
-var photo_container;
+var http_request = new XMLHttpRequest();
+http_request.open('GET','https://api.github.com',false);
+http_request.send(null);
 
-var img_urls = new Array;
+var github_data = JSON.parse(http_request.response);
 
-var add_images = function(number_of_images){
+http_request = new XMLHttpRequest();
+http_request.open('GET', github_data.emojis_url,false);
+http_request.send(null);
+
+var github_emojis = JSON.parse(http_request.response);
+
+for( i in github_emojis){
     
-    var image;
     
-    for(var i=0; i< number_of_images; i++){
-        img_urls.push('images/profile_photo_' + (i + 1) + '.jpg');
-        image = document.createElement('img');
-        image.setAttribute('src', img_urls[i]);
-        image.style.width = number_of_images;
-        
-        document.body.appendChild(image);
-        
-        
-        
-         image.addEventListener('mouseover', function(event){
-             
-             this.style.transform = "rotateY(180deg)";
-             
-             this.style.flip = "rotateY(360deg)";
-             
-             this.style.transition = '1.1s';
-             
-         });
-         
-         image.addEventListener('click', function(event){
-             
-             
-              this.style.transform = "rotateZ(360deg)";
-              this.style.transition = '2.1s';
-              
-         }); 
-        
-    }
+    var image_container = document.createElement('img');
+    image_container.setAttribute('src','github_emojis[i]');
+    document.body.appendChild(image_container);
+    
+    
 };
-
-
-document.addEventListener('DOMContentLoaded', function(event){
-    
-    add_images(68,'5%');
-    
-
-});
-
-
-
-
-
